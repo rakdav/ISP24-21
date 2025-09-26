@@ -84,3 +84,19 @@
 //лабораторная работа #2
 //Программирование линейных алгоритмов
 //Вариант 30. Базовый
+//Console.Write("Введите x1:");
+//double x1 = double.Parse(Console.ReadLine());
+//Console.Write("Введите x2:");
+//double x2 = double.Parse(Console.ReadLine());
+//Console.WriteLine($"s1={(Math.Pow(x1,3)+ Math.Pow(x2, 3)/2):f2}");
+//Console.WriteLine($"s1={(Math.Abs(x1) + Math.Abs(x2) / 2):f2}");
+
+//Вариант 31. Средний
+Console.Write("Введите е:");
+double t = double.Parse(Console.ReadLine());
+Console.Write("Введите и:");
+double b = double.Parse(Console.ReadLine());
+double a=t+Math.Pow(b,3);
+double x=t*t*Math.Sqrt(Math.Abs(a+b));
+double y = Math.Pow(Math.Log(Math.Abs(x+a*a)),5);
+Console.WriteLine($"y={y:f2}");
