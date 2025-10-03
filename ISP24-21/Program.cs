@@ -73,8 +73,8 @@
 //}
 try
 {
-    Console.Write("Введите x:");
-    double x = double.Parse(Console.ReadLine());
+    //Console.Write("Введите x:");
+    //double x = double.Parse(Console.ReadLine());
     //if (x >= 0) Console.WriteLine(x);
     //else Console.WriteLine(-x);
     //Console.WriteLine((x>=0)?x:-x);
@@ -84,13 +84,46 @@ try
     //int a=int.Parse(Console.ReadLine());
     //if (a % 10 == 3 || a / 10 == 3) Console.WriteLine("3 входит");
     //else Console.WriteLine("3 не входит");
-    Console.Write("Введите y:");
-    double y = double.Parse(Console.ReadLine());
-    Console.Write("Введите радиус:");
-    double r = double.Parse(Console.ReadLine());
-    Console.WriteLine((x*x+y*y<=r*r)?"Принадлежит":"Не принадлежит");
+    //Console.Write("Введите y:");
+    //double y = double.Parse(Console.ReadLine());
+    //Console.Write("Введите радиус:");
+    //double r = double.Parse(Console.ReadLine());
+    //Console.WriteLine((x*x+y*y<=r*r)?"Принадлежит":"Не принадлежит");
+    //Console.Write("Введите номер дня недели:");
+    //byte n=byte.Parse(Console.ReadLine());
+    //if(n==7) Console.WriteLine("Воскресенье");
+    //else if (n==1) Console.WriteLine("Понедельник");
+    //switch (n)
+    //{
+    //    case 1:Console.WriteLine("Воскресенье");break;
+    //    case 2: Console.WriteLine("Понедельник"); break;
+    //    case 3: Console.WriteLine("Вторник"); break;
+    //    case 4: Console.WriteLine("Среда"); break;
+    //    case 5: Console.WriteLine("Четверг"); break;
+    //    case 6: Console.WriteLine("Пятница"); break;
+    //    case 7: Console.WriteLine("Суббота"); break;
+    //    default: Console.WriteLine("Нет такого дня недели"); break;
+    //}
+    //Console.Write("Введите номер месяца:");
+    //byte n = byte.Parse(Console.ReadLine());
+    //switch (n)
+    //{
+    //    case 12:case 1:case 2:Console.WriteLine("Зима"); break;
+    //    case 3: case 4: case 5: Console.WriteLine("Весна"); break;
+    //    case 6: case 7: case 8: Console.WriteLine("Лето"); break;
+    //    case 9: case 10: case 11: Console.WriteLine("Осень"); break;
+    //    default: Console.WriteLine("Нет такого месяца"); break;
+    //}
+    long n = long.Parse(Console.ReadLine());
+    if(n%100>=11&&n%100<=14) Console.WriteLine(n+" рублей");
+    else switch (n)
+        {
+            case 1: Console.WriteLine(n+" рубль");break;
+            case 2:case 3:case 4: Console.WriteLine(n + " рубля"); break;
+            default: Console.WriteLine(n+" рублей");break;
+        }
 }
-catch(Exception e)
+catch (Exception e)
 {
     Console.WriteLine(e.Message);
 }
