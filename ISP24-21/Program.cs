@@ -114,14 +114,56 @@ try
     //    case 9: case 10: case 11: Console.WriteLine("Осень"); break;
     //    default: Console.WriteLine("Нет такого месяца"); break;
     //}
-    long n = long.Parse(Console.ReadLine());
-    if(n%100>=11&&n%100<=14) Console.WriteLine(n+" рублей");
-    else switch (n)
-        {
-            case 1: Console.WriteLine(n+" рубль");break;
-            case 2:case 3:case 4: Console.WriteLine(n + " рубля"); break;
-            default: Console.WriteLine(n+" рублей");break;
-        }
+    //long n = long.Parse(Console.ReadLine());
+    //if(n%100>=11&&n%100<=14) Console.WriteLine(n+" рублей");
+    //else switch (n)
+    //    {
+    //        case 1: Console.WriteLine(n+" рубль");break;
+    //        case 2:case 3:case 4: Console.WriteLine(n + " рубля"); break;
+    //        default: Console.WriteLine(n+" рублей");break;
+    //    }
+
+    //Циклы
+    //Вычислить n! (n вводится с клавиатуры).
+    //Console.Write("Введите n:");
+    //int n=int.Parse(Console.ReadLine());
+    ////цикл с предусловием
+    ////блок инициализации
+    //long F = 1;
+    //int i = 1;
+    //while (i <= n)
+    //{
+    //    F *= i;
+    //    i++;
+    //}
+    //Console.WriteLine($"Факториал {n}={F}");
+    ////цикл с постусловием
+    //F = 1;
+    //i= 1;
+    //do
+    //{
+    //    F*=i; 
+    //    i++;
+    //}
+    //while (i <= n);
+    //Console.WriteLine($"Факториал {n}={F}");
+    ////цикл for
+    //F = 1;
+    //for (int j = 1; j <= n; j++) F *= i;
+    //Console.WriteLine($"Факториал {n}={F}");
+
+    //Дано положительное число n. Вычислить сумму чисел от 1 до n
+    int n;
+    do
+    {
+        Console.Write("Введите n:");
+        n=int.Parse(Console.ReadLine());
+        if(n<=0) Console.WriteLine("Введите положительное число");
+    }
+    while (n<=0);
+    int s = 0;
+    for (int i = 0; i <= n; i++) s += i;
+    Console.WriteLine($"s={s}");
 }
 catch (Exception e)
 {
