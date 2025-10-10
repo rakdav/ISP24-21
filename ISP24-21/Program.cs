@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 
 //Console.Write("Введите ваше имя:");
 //string name=Console.ReadLine();
@@ -126,7 +126,7 @@ try
     //Циклы
     //Вычислить n! (n вводится с клавиатуры).
     //Console.Write("Введите n:");
-    //int n=int.Parse(Console.ReadLine());
+    //int n = int.Parse(Console.ReadLine());
     ////цикл с предусловием
     ////блок инициализации
     //long F = 1;
@@ -134,6 +134,7 @@ try
     //while (i <= n)
     //{
     //    F *= i;
+    //  //  if (i == 4) continue; 
     //    i++;
     //}
     //Console.WriteLine($"Факториал {n}={F}");
@@ -153,17 +154,75 @@ try
     //Console.WriteLine($"Факториал {n}={F}");
 
     //Дано положительное число n. Вычислить сумму чисел от 1 до n
-    int n;
-    do
+    //    int n;
+    //    do
+    //    {
+    //        Console.Write("Введите n:");
+    //        n=int.Parse(Console.ReadLine());
+    //        if(n<=0) Console.WriteLine("Введите положительное число");
+    //    }
+    //    while (n<=0);
+    //    int s = 0;
+    //    for (int i = 0; i <= n; i++) s += i;
+    //    Console.WriteLine($"s={s}");
+
+    //Console.WriteLine("Введите числа. Введение 0 конец последовательности");
+    //int count = 0;
+    //double s = 0;
+    //do
+    //{
+    //    int n=int.Parse(Console.ReadLine());
+    //    if (n == 0) break;
+    //    count++;
+    //    s+=n;
+    //}
+    //while (true);
+    //Console.WriteLine($"Количество чисел последоватльности:{count}, " +
+    //    $"сумма чисел:{s}, среднее арифметическое:{(s/count):F2}");
+    //int n, m;
+    //do
+    //{
+    //    Console.Clear();
+    //    Console.Write("Введите нижний индекс:");
+    //    n = int.Parse(Console.ReadLine());
+    //    Console.Write("Введите верхний индекс:");
+    //    m = int.Parse(Console.ReadLine());
+    //    if (n >= m) Console.WriteLine("Верхний индекс не должен быть меньше нижнего");
+    //    else break;
+    //}
+    //while (true);
+    //int s = 0;
+    //for (int i = n; i <= m; i++) if(i%2!=0)s += i;
+    //Console.WriteLine($"S={s}");
+    //s = 0;
+    //for (int i = n; i <= m; i++) {
+    //    if (i % 2 == 0) continue;
+    //    else s += i;
+    //}
+    //Console.WriteLine($"S={s}");
+    //double s = 0;
+    //for (double i = 1; i <= 20; i++) s += 1 / i;
+    //Console.WriteLine($"s={s:F2}");
+    //for (int i = 1000; i < 10000; i++)
+    //{
+    //    int n = i;
+    //    int s = 0;
+    //    while (n > 0)
+    //    {
+    //        s += n % 10;
+    //        n /= 10;
+    //    }
+    //    if(s==15) Console.Write(i+" ");
+    //}
+
+    for (int i = 1; i < 10; i++)
     {
-        Console.Write("Введите n:");
-        n=int.Parse(Console.ReadLine());
-        if(n<=0) Console.WriteLine("Введите положительное число");
+        for (int j = 1; j < 10; j++)
+        {
+            Console.Write($"{i}*{j}={i*j} ");
+        }
+        Console.WriteLine();
     }
-    while (n<=0);
-    int s = 0;
-    for (int i = 0; i <= n; i++) s += i;
-    Console.WriteLine($"s={s}");
 }
 catch (Exception e)
 {
