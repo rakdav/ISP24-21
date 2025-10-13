@@ -37,7 +37,7 @@
 //{
 //    Console.WriteLine(ex.Message);
 //}
-//табулирование функций
+//табулирование функций 28 вариант
 Console.WriteLine("------------------------------");
 Console.WriteLine("|       x       |       y     |");
 Console.WriteLine("------------------------------");
