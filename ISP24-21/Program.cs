@@ -326,6 +326,21 @@ try
     for (int i = 0; i < mas7.Length; i ++) 
         if( mas7[i] == 0 ) count++;
     Console.WriteLine($"Rоличество нулей {count}");
+
+    //сортировка методом Пузырька
+    for (int i = 0; i < mas7.Length-1; i++)
+    {
+        for (int j = i+1; j < mas7.Length; j++)
+        {
+            if (mas7[i] > mas7[j])
+            {
+                int temp = mas7[i];
+                mas7[i] = mas7[j];
+                mas7[j] = temp;
+            }
+        }
+    }
+    foreach (int item in mas7) Console.Write(item+" ");
 }
 catch (Exception e)
 {
