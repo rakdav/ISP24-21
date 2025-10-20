@@ -215,14 +215,117 @@ try
     //    if(s==15) Console.Write(i+" ");
     //}
 
-    for (int i = 1; i < 10; i++)
+    //for (int i = 1; i < 10; i++)
+    //{
+    //    for (int j = 1; j < 10; j++)
+    //    {
+    //        Console.Write($"{i}*{j}={i*j} ");
+    //    }
+    //    Console.WriteLine();
+    //}
+
+    //Массивы
+    int[] mas1 = { 1, 5, 3, 9, 8, 7 };
+    int[] mas2 = new int[5];
+    //заполнение вручную
+    //Console.WriteLine("Ввелите элементы массива:");
+    //for (int i = 0; i < mas2.Length; i++)
+    //{
+    //    mas2[i] = int.Parse(Console.ReadLine());
+    //}
+    //foreach (int i in mas2) Console.Write(i+" ");
+    //Console.WriteLine();
+    //заполнение с помощью генератора случайных чисел
+    //Random rnd= new Random();
+    int[] mas3= new int[10];
+    //for (int i = 0; i < mas3.Length; i++)
+    //{
+    //    mas3[i] = rnd.Next(10, 100);
+    //    Console.Write(mas3[i]+" ");
+    //}
+    Console.WriteLine();
+    //Дан целочисленный массив состоящий из 10 элементов.Элементы массива принимают значения в интервале[-7; 7]. Найдите последнее вхождение в массив элемента n(n вводится с клавиатуры).Подсчитайте количество элементов массива меньших n.
+    //int[] mas4=new int[10];
+    //for(int i = 0;i<mas4.Length; i++)
+    //{
+    //    mas4[i]=rnd.Next(-7, 8);
+    //    Console.Write(mas4[i]+" ");
+    //}
+    //Console.WriteLine();
+    //int last=-1;
+    //Console.Write("Введите n:");
+    //int n=int.Parse(Console.ReadLine());
+    //for (int i = 0; i < mas4.Length; i++)
+    //{
+    //    if (mas4[i]==n) last=i;
+    //}
+    //Console.WriteLine($"Последнее вхождение в массив элемента {n}:{last}");
+    //int less = 0;
+    //for (int i = 0; i < mas4.Length; i++)
+    //{
+    //    if (mas4[i] <n) less++;
+    //}
+    //Console.WriteLine($"Количество элементов меньше {n}:{less}");
+
+    //Дан целочисленный массив состоящий из n элементов.Элементы массива принимают значения в интервале[-10; 10]. Найдите максимальный элемент массива
+    //Console.Write("Введите n:");
+    //int n = int.Parse(Console.ReadLine());
+    //int[] mas5 = new int[n];
+    //for (int i = 0; i < mas5.Length; i++)
+    //{
+    //    mas5[i] = rnd.Next(-10, 11);
+    //    Console.Write(mas5[i] + " ");
+    //}
+    //Console.WriteLine();
+    //int max=mas5[0];
+    //for (int i = 1; i < mas5.Length; i++)
+    //{
+    //    if (mas5[i]>max) max=mas5[i];
+    //}
+    //Console.WriteLine($"max={max}");
+
+    //Console.WriteLine($"{Array.IndexOf(mas5,5)}");
+    //Console.WriteLine($"{Array.LastIndexOf(mas5, 5)}");
+    //Array.Sort( mas5 );
+    //foreach (var item in mas5) Console.Write(item+" ");
+    //Console.WriteLine();
+    //Array.Reverse( mas5 );
+    //foreach (var item in mas5) Console.Write(item + " ");
+    //Console.WriteLine();
+
+    //Найти сумму элементов одномерного массива, заданного случайным образом на интервале [-13;11;]. Размерность вводится с клавиатуры. 
+    //Console.Write("Введите n:");
+    //int n = int.Parse(Console.ReadLine());
+    //int[] mas6 = new int[n];
+    //for (int i = 0; i < mas6.Length; i++)
+    //{
+    //    mas6[i] = rnd.Next(-13, 12);
+    //    Console.Write(mas6[i] + " ");
+    //}
+    //Console.WriteLine();
+    //int s = 0;
+    //for (int i = 0; i < mas6.Length; i++) s += mas6[i];
+    //Console.WriteLine($"S={s}");
+
+    //Сформировать и вывести на экран массив, элементы которого заданы случайным образом на интервале [-19, 26] (размерность вводится с клавиатуры). Найти произведение элементов с нечетными номерами.
+    //Подсчитать количество нулей
+    Console.Write("Введите n:");
+    int n = int.Parse(Console.ReadLine());
+    int[] mas7 = new int[n];
+    Random rnd = new Random();
+    for (int i = 0; i < mas7.Length; i++)
     {
-        for (int j = 1; j < 10; j++)
-        {
-            Console.Write($"{i}*{j}={i*j} ");
-        }
-        Console.WriteLine();
+        mas7[i] = rnd.Next(-19, 27);
+        Console.Write(mas7[i] + " ");
     }
+    Console.WriteLine();
+    int p = 1;
+    for (int i = 0; i < mas7.Length; i += 2) p *= mas7[i];
+    Console.WriteLine($"p={p}");
+    int count = 0;
+    for (int i = 0; i < mas7.Length; i ++) 
+        if( mas7[i] == 0 ) count++;
+    Console.WriteLine($"Rоличество нулей {count}");
 }
 catch (Exception e)
 {
