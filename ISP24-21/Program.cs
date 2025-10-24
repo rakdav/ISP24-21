@@ -71,6 +71,8 @@
 //    Console.WriteLine(a);
 //    Console.WriteLine(b);
 //}
+using System.Diagnostics;
+
 try
 {
     //Console.Write("Введите x:");
@@ -309,38 +311,119 @@ try
 
     //Сформировать и вывести на экран массив, элементы которого заданы случайным образом на интервале [-19, 26] (размерность вводится с клавиатуры). Найти произведение элементов с нечетными номерами.
     //Подсчитать количество нулей
-    Console.Write("Введите n:");
-    int n = int.Parse(Console.ReadLine());
-    int[] mas7 = new int[n];
-    Random rnd = new Random();
-    for (int i = 0; i < mas7.Length; i++)
-    {
-        mas7[i] = rnd.Next(-19, 27);
-        Console.Write(mas7[i] + " ");
-    }
-    Console.WriteLine();
-    int p = 1;
-    for (int i = 0; i < mas7.Length; i += 2) p *= mas7[i];
-    Console.WriteLine($"p={p}");
-    int count = 0;
-    for (int i = 0; i < mas7.Length; i ++) 
-        if( mas7[i] == 0 ) count++;
-    Console.WriteLine($"Rоличество нулей {count}");
+    //Console.Write("Введите n:");
+    //int n = int.Parse(Console.ReadLine());
+    //int[] mas7 = new int[n];
+    //Random rnd = new Random();
+    //for (int i = 0; i < mas7.Length; i++)
+    //{
+    //    mas7[i] = rnd.Next(-19, 27);
+    //    Console.Write(mas7[i] + " ");
+    //}
+    //Console.WriteLine();
+    //int p = 1;
+    //for (int i = 0; i < mas7.Length; i += 2) p *= mas7[i];
+    //Console.WriteLine($"p={p}");
+    //int count = 0;
+    //for (int i = 0; i < mas7.Length; i ++) 
+    //    if( mas7[i] == 0 ) count++;
+    //Console.WriteLine($"Rоличество нулей {count}");
 
     //сортировка методом Пузырька
-    for (int i = 0; i < mas7.Length-1; i++)
+    //for (int i = 0; i < mas7.Length-1; i++)
+    //{
+    //    for (int j = i+1; j < mas7.Length; j++)
+    //    {
+    //        if (mas7[i] > mas7[j])
+    //        {
+    //            int temp = mas7[i];
+    //            mas7[i] = mas7[j];
+    //            mas7[j] = temp;
+    //        }
+    //    }
+    //}
+    //foreach (int item in mas7) Console.Write(item+" ");
+
+    //Console.WriteLine("Введите n:");
+    //double n= int.Parse(Console.ReadLine());
+    //Console.WriteLine("Введите x:");
+    //double x= double.Parse(Console.ReadLine());
+    //double s = 0;
+    //for (int i = 0; i < n; i++)
+    //{
+    //    double f = 1;
+    //    for (int j = 1; j < 2 * i; j++) f *= j;
+    //    if (i % 2 == 0) s += i*(i + 1) /(2*f);
+    //    else s -= i*(i + 1) / (2*f);
+    //}
+    //Console.WriteLine(s);
+
+    //Cортировка вставками
+    Random rnd=new Random();
+    int n=rnd.Next(10000,100000);
+    int[] mas4=new int[n];
+    for(int i=0; i<mas4.Length; i++)
     {
-        for (int j = i+1; j < mas7.Length; j++)
+        mas4[i]=rnd.Next(10,100);
+      //  Console.Write(mas4[i]+" ");
+    }
+    Console.WriteLine();
+    int[] mas5=new int[n];
+    //mas5 = mas4;
+    Array.Copy(mas4, mas5,mas4.Length);
+    Stopwatch stpWatch=new Stopwatch();
+    stpWatch.Start();
+    for (int i = 0; i < mas5.Length-1; i++)
+    {
+        var key = mas5[i];
+        var j = i;
+        while ((j > 0) && (mas5[j-1]>key))
         {
-            if (mas7[i] > mas7[j])
+            mas5[j] = mas5[j - 1];
+            j--;
+        }
+        mas5[j] = key;
+    }
+    stpWatch.Stop();
+  //  foreach (var item in mas4) Console.Write(item+" ");
+    Console.WriteLine("StopWatch:"+stpWatch.ElapsedMilliseconds.ToString());
+    Console.WriteLine();
+    int[] mas6 = new int[n];
+    Array.Copy(mas4, mas6, mas6.Length);
+    stpWatch.Start();
+    for (int i = 0; i < mas6.Length - 1; i++)
+    {
+        for (int j = i + 1; j < mas6.Length; j++)
+        {
+            if (mas6[i] > mas6[j])
             {
-                int temp = mas7[i];
-                mas7[i] = mas7[j];
-                mas7[j] = temp;
+                int temp = mas6[i];
+                mas6[i] = mas6[j];
+                mas6[j] = temp;
             }
         }
     }
-    foreach (int item in mas7) Console.Write(item+" ");
+    stpWatch.Stop();
+    Console.WriteLine("StopWatch:" + stpWatch.ElapsedMilliseconds.ToString());
+    //Сортировка выбором
+    int[] mas7 = new int[n];
+    Array.Copy(mas4, mas7, mas7.Length);
+    stpWatch.Start();
+    for (int i = 0; i < mas7.Length-2; i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < mas7.Length - 1; j++)
+            if (mas7[j] < mas7[min]) min = j;
+        if (min != i)
+        {
+            int temp = mas7[min];
+            mas7[min] = mas7[i];
+            mas7[i] = temp;
+        }
+    }
+    stpWatch.Stop();
+    Console.WriteLine("StopWatch:" + stpWatch.ElapsedMilliseconds.ToString());
+
 }
 catch (Exception e)
 {
