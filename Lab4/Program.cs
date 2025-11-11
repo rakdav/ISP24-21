@@ -369,8 +369,6 @@
 //string[] mas = {"aaa","bbb","ccc"};
 //string str=string.Join(", ", mas);
 //Console.WriteLine(str);
-using System.Text;
-using System.Text.RegularExpressions;
 
 //string text = "А роза упала на лапу Азора";
 //Console.WriteLine(text);
@@ -450,20 +448,66 @@ using System.Text.RegularExpressions;
 //Console.WriteLine(count);
 
 //символьный тип. высокий уровень. 30 вариант
-Console.WriteLine("Введите текст:");
-string text = Console.ReadLine();
-string[] masWords = text.Split('.');
-string result = "";
-for (int i = 0; i < masWords.Length-1; i++)
+//Console.WriteLine("Введите текст:");
+//string text = Console.ReadLine();
+//string[] masWords = text.Split('.');
+//string result = "";
+//for (int i = 0; i < masWords.Length - 1; i++)
+//{
+//    string temp = masWords[i].Trim();
+//    string first = temp[0].ToString();
+//    temp = temp.Remove(0, 1);
+//    temp = temp.Insert(0, first.ToUpper());
+//    temp += ". ";
+//    result += temp;
+//}
+//Console.Write(result.Trim());
+
+//строковый тип. Базовый уровень. 30 вариант
+//char[] mas = new char[52];
+//int index = 0;
+//for (int i = (int)'A'; i <=(int)'Z'; i++)
+//{
+//    mas[index++]= (char)i;
+//}
+//for (int i = (int)'a'; i <= (int)'z'; i++)
+//{
+//    mas[index++] = (char)i;
+//}
+//Console.WriteLine("Введите текст:");
+//string text=Console.ReadLine();
+//for (int i = 0;i<mas.Length;i++)
+//{
+//    while (text.IndexOf(mas[i])!=-1)
+//    {
+//        int k = text.IndexOf(mas[i]);
+//        text=text.Remove(k,1);
+//    } 
+//}
+//Console.WriteLine(text);
+
+//строковый тип. Средний уровень. 30 вариант
+using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
+
+Console.WriteLine("Введите строку:");
+string str=Console.ReadLine();
+string[] mas = {"sin","cos","log"};
+for (int i = 0; i < mas.Length; i++)
 {
-    string temp = masWords[i].Trim();
-    string first = temp[0].ToString();
-    temp=temp.Remove(0, 1);
-    temp = temp.Insert(0, first.ToUpper());
-    temp += ". ";
-    result += temp;
+    Regex r = new Regex(mas[i]);
+    Match tel = r.Match(str);
+    while (tel.Success)
+    {
+        str = str.Insert(tel.Index + tel.Length, "(");
+        tel = tel.NextMatch();
+    }
 }
-Console.Write(result.Trim());
+Console.WriteLine(str);
+
+
+
+
 
 
 
