@@ -487,23 +487,28 @@
 //Console.WriteLine(text);
 
 //строковый тип. Средний уровень. 30 вариант
-using System.Text.RegularExpressions;
-using static System.Net.Mime.MediaTypeNames;
+//using System.Text.RegularExpressions;
+//using static System.Net.Mime.MediaTypeNames;
 
-Console.WriteLine("Введите строку:");
-string str=Console.ReadLine();
-string[] mas = {"sin","cos","log"};
-for (int i = 0; i < mas.Length; i++)
-{
-    Regex r = new Regex(mas[i]);
-    Match tel = r.Match(str);
-    while (tel.Success)
-    {
-        str = str.Insert(tel.Index + tel.Length, "(");
-        tel = tel.NextMatch();
-    }
-}
-Console.WriteLine(str);
+//Console.WriteLine("Введите строку:");
+//string str=Console.ReadLine();
+//string[] mas = {"sin","cos","log"};
+//for (int i = 0; i < mas.Length; i++)
+//{
+//    Regex r = new Regex(mas[i]);
+//    Match tel = r.Match(str);
+//    while (tel.Success)
+//    {
+//        str = str.Insert(tel.Index + tel.Length, "(");
+//        tel = tel.NextMatch();
+//    }
+//}
+//Console.WriteLine(str);
+
+Random rnd = new Random();
+int n = rnd.Next();
+int y = rnd.Next();
+int[,] mas = new int[n, y];
 
 
 
