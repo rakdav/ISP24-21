@@ -1,5 +1,6 @@
 ﻿using System.Threading.Channels;
 using System.Xml.Linq;
+using MyLib;
 
 //int Sum(int a, int b)
 //{
@@ -181,13 +182,13 @@ for (int i = 0; i < mas.Length; i++)
 //Console.WriteLine(string.Join(", ", MergeSortAlg(mas)));
 
 //Базовый уровень. 1 вариант.
-Console.WriteLine($"{Func(5)+Func(12)+Func(19):F2}");
+//Console.WriteLine($"{Func(5)+Func(12)+Func(19):F2}");
 //Средний уровень. 1 вариант.
-Console.WriteLine(ToBinary(9));
+//Console.WriteLine(ToBinary(9));
 //Высокий уровень. 1 вариант.
-Console.WriteLine(Fact(5));
-Console.WriteLine(Fact2(6));
-Console.WriteLine(Fact2(7));
+//Console.WriteLine(Fact(5));
+//Console.WriteLine(Fact2(6));
+//Console.WriteLine(Fact2(7));
 
 double Func(int i)
 {
@@ -226,3 +227,36 @@ long Fact2(int n)
         else return Fact2(n - 2) * n;
     }
 }
+//Библиотеки. Вариант 1. Базовый уровень. 
+//int[,] myMas = new int[7, 4];
+//Random rand=new Random();
+//for (int i = 0;i<myMas.GetLength(0);i++)
+//{
+//    for (int j = 0;j<myMas.GetLength(1);j++)
+//    {
+//        myMas[i, j] = rand.Next(10, 100);
+//        Console.Write(myMas[i,j]+" ");
+//    }
+//    Console.WriteLine();
+//}
+//Console.WriteLine($"Сумма индексов максимального элемента матрицы:{MyLib.Matrix.SumMaxMin(myMas)}");
+
+//Библиотеки. Вариант 1. Средний уровень. 
+double[,] myMas = new double[8, 3];
+for (int i = 0; i < myMas.GetLength(0); i++)
+{
+    for (int j = 0; j < myMas.GetLength(1); j++)
+    {
+        myMas[i, j] = Math.Pow((Math.Sin(i) * Math.Sin(i) + Math.Cos(j) * Math.Cos(j)),(i-5)/(j+1))+
+            7.45*Math.Tan((i-5)/(j+8));
+        Console.Write($"{myMas[i, j]:F2} ");
+    }
+    Console.WriteLine();
+}
+double[] res1=MyLib.Matrix.vectorSum(myMas);
+for(int i = 0;i < res1.Length;i++)
+{
+    Console.Write($"{res1[i]:F2} ");
+}
+Console.WriteLine();
+Console.WriteLine($"Разность:{MyLib.Matrix.diffMas(res1):F2}");
