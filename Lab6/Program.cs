@@ -1,6 +1,7 @@
-﻿using System.Threading.Channels;
+﻿using MyLib;
+using System.Text.RegularExpressions;
+using System.Threading.Channels;
 using System.Xml.Linq;
-using MyLib;
 
 //int Sum(int a, int b)
 //{
@@ -114,69 +115,69 @@ using MyLib;
 
 //Реализация сортировки слиянием
 //метод для слияния массивов
-void Merge(int[] a, int l, int m, int r)
-{
-    int i, j, k;
+//void Merge(int[] a, int l, int m, int r)
+//{
+//    int i, j, k;
 
-int n1 = m - l + 1;
-int n2 = r - m;
+//int n1 = m - l + 1;
+//int n2 = r - m;
 
-int[] left = new int[n1 + 1];
-int[] right = new int[n2 + 1];
+//int[] left = new int[n1 + 1];
+//int[] right = new int[n2 + 1];
 
-for (i = 0; i < n1; i++)
-{
-    left[i] = a[l + i];
-}
+//for (i = 0; i < n1; i++)
+//{
+//    left[i] = a[l + i];
+//}
 
-for (j = 1; j <= n2; j++)
-{
-    right[j - 1] = a[m + j];
-}
+//for (j = 1; j <= n2; j++)
+//{
+//    right[j - 1] = a[m + j];
+//}
 
-left[n1] = int.MaxValue;
-right[n2] = int.MaxValue;
+//left[n1] = int.MaxValue;
+//right[n2] = int.MaxValue;
 
-i = 0;
-j = 0;
+//i = 0;
+//j = 0;
 
-for (k = l; k <= r; k++)
-{
-    if (left[i] < right[j])
-    {
-        a[k] = left[i];
-        i = i + 1;
-    }
-    else
-    {
-        a[k] = right[j];
-        j = j + 1;
-    }
-}
-}
-//сортировка слиянием
-int[] MergeSort(int[] array,int lowIndex,int hightIndex)
-{
-    if (lowIndex < hightIndex)
-    {
-        int middleIndex = (lowIndex + hightIndex) / 2;
-        MergeSort(array, lowIndex, middleIndex);
-        MergeSort(array, middleIndex+1, hightIndex);
-        Merge(array, lowIndex, middleIndex, hightIndex);
-    }
-    return array;
-}
+//for (k = l; k <= r; k++)
+//{
+//    if (left[i] < right[j])
+//    {
+//        a[k] = left[i];
+//        i = i + 1;
+//    }
+//    else
+//    {
+//        a[k] = right[j];
+//        j = j + 1;
+//    }
+//}
+//}
+////сортировка слиянием
+//int[] MergeSort(int[] array,int lowIndex,int hightIndex)
+//{
+//    if (lowIndex < hightIndex)
+//    {
+//        int middleIndex = (lowIndex + hightIndex) / 2;
+//        MergeSort(array, lowIndex, middleIndex);
+//        MergeSort(array, middleIndex+1, hightIndex);
+//        Merge(array, lowIndex, middleIndex, hightIndex);
+//    }
+//    return array;
+//}
 
-int[] MergeSortAlg(int[] array)
-{
-    return MergeSort(array, 0, array.Length-1);
-}
-Random random=new Random();
-int[] mas = new int[20];
-for (int i = 0; i < mas.Length; i++)
-{
-    mas[i] = random.Next(1, 100);
-}
+//int[] MergeSortAlg(int[] array)
+//{
+//    return MergeSort(array, 0, array.Length-1);
+//}
+//Random random=new Random();
+//int[] mas = new int[20];
+//for (int i = 0; i < mas.Length; i++)
+//{
+//    mas[i] = random.Next(1, 100);
+//}
 //Console.WriteLine(string.Join(", ", mas));
 //Console.WriteLine();
 //Console.WriteLine(string.Join(", ", MergeSortAlg(mas)));
@@ -190,43 +191,43 @@ for (int i = 0; i < mas.Length; i++)
 //Console.WriteLine(Fact2(6));
 //Console.WriteLine(Fact2(7));
 
-double Func(int i)
-{
-    return (Math.Sqrt(i)+i) / 2;
-}
-string ToBinary(int n)
-{
-    string res = "";
-    while (n != 1)
-    {
-        int remainder =n % 2;
-        res += remainder;
-        n /= 2;
-    }
-    res += "1";
-    char[] chars = res.ToCharArray();
-    Array.Reverse(chars);
-    return new string(chars);
-}
+//double Func(int i)
+//{
+//    return (Math.Sqrt(i)+i) / 2;
+//}
+//string ToBinary(int n)
+//{
+//    string res = "";
+//    while (n != 1)
+//    {
+//        int remainder =n % 2;
+//        res += remainder;
+//        n /= 2;
+//    }
+//    res += "1";
+//    char[] chars = res.ToCharArray();
+//    Array.Reverse(chars);
+//    return new string(chars);
+//}
 
-long Fact(int n)
-{
-    if (n == 0 || n == 1) return 1;
-    else return Fact(n - 1) * n;
-}
-long Fact2(int n)
-{
-    if (n % 2 == 0)
-    {
-        if (n == 2) return 2;
-        else return Fact2(n-2)*n;
-    }
-    else
-    {
-        if (n == 1) return 1;
-        else return Fact2(n - 2) * n;
-    }
-}
+//long Fact(int n)
+//{
+//    if (n == 0 || n == 1) return 1;
+//    else return Fact(n - 1) * n;
+//}
+//long Fact2(int n)
+//{
+//    if (n % 2 == 0)
+//    {
+//        if (n == 2) return 2;
+//        else return Fact2(n-2)*n;
+//    }
+//    else
+//    {
+//        if (n == 1) return 1;
+//        else return Fact2(n - 2) * n;
+//    }
+//}
 //Библиотеки. Вариант 1. Базовый уровень. 
 //int[,] myMas = new int[7, 4];
 //Random rand=new Random();
@@ -242,21 +243,71 @@ long Fact2(int n)
 //Console.WriteLine($"Сумма индексов максимального элемента матрицы:{MyLib.Matrix.SumMaxMin(myMas)}");
 
 //Библиотеки. Вариант 1. Средний уровень. 
-double[,] myMas = new double[8, 3];
-for (int i = 0; i < myMas.GetLength(0); i++)
+//double[,] myMas = new double[8, 3];
+//for (int i = 0; i < myMas.GetLength(0); i++)
+//{
+//    for (int j = 0; j < myMas.GetLength(1); j++)
+//    {
+//        myMas[i, j] = Math.Pow((Math.Sin(i) * Math.Sin(i) + Math.Cos(j) * Math.Cos(j)),(i-5)/(j+1))+
+//            7.45*Math.Tan((i-5)/(j+8));
+//        Console.Write($"{myMas[i, j]:F2} ");
+//    }
+//    Console.WriteLine();
+//}
+//double[] res1=MyLib.Matrix.vectorSum(myMas);
+//for(int i = 0;i < res1.Length;i++)
+//{
+//    Console.Write($"{res1[i]:F2} ");
+//}
+//Console.WriteLine();
+//Console.WriteLine($"Разность:{MyLib.Matrix.diffMas(res1):F2}");
+
+
+
+int[] mas = new int[7];
+Random r = new Random();
+for (int i = 0; i < mas.Length; i++)
 {
-    for (int j = 0; j < myMas.GetLength(1); j++)
+    mas[i] = r.Next(10, 100);
+    Console.Write(mas[i] + " ");
+}
+Console.WriteLine();
+Console.WriteLine();
+int[] mas1 = new int[7];
+for (int i = 0; i < mas.Length; i++)
+{
+    mas1[i] = mas[i] / 10;
+    Console.Write(mas1[i] + "  ");
+}
+Console.WriteLine();
+
+Console.Write("Введите n:");
+int n = int.Parse(Console.ReadLine());
+int[,] mas2 = new int[n, n];
+for (int i = 0; i < n; i++)
+{
+    for (int j = 0; j < n; j++)
     {
-        myMas[i, j] = Math.Pow((Math.Sin(i) * Math.Sin(i) + Math.Cos(j) * Math.Cos(j)),(i-5)/(j+1))+
-            7.45*Math.Tan((i-5)/(j+8));
-        Console.Write($"{myMas[i, j]:F2} ");
+        if (i + j == n - 1)
+        {
+            mas2[i, j] = 1;
+        }
+        else if (i + j < n - 1)
+        {
+            mas2[i, j] = 0;
+        }
+        else
+        {
+            mas2[i, j] = 2;
+        }
+    }
+}
+Console.WriteLine("полученный массив:");
+for (int i = 0; i < n; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        Console.Write(mas2[i, j] + " ");
     }
     Console.WriteLine();
 }
-double[] res1=MyLib.Matrix.vectorSum(myMas);
-for(int i = 0;i < res1.Length;i++)
-{
-    Console.Write($"{res1[i]:F2} ");
-}
-Console.WriteLine();
-Console.WriteLine($"Разность:{MyLib.Matrix.diffMas(res1):F2}");
