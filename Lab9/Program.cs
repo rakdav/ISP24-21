@@ -64,52 +64,79 @@
 //        return 2*(width+height);
 //    }
 //}
-Console.Write("Введите день:");
-int day=int.Parse(Console.ReadLine()!);
-Console.Write("Введите время разговора в минутах:");
-double time = double.Parse(Console.ReadLine()!);
-Console.Write("Введите цену минуты разговора:");
-decimal price = decimal.Parse(Console.ReadLine()!);
-Tel tel=new Tel(day,time,price);
-tel.Print();
-class Tel
+//Console.Write("Введите день:");
+//int day=int.Parse(Console.ReadLine()!);
+//Console.Write("Введите время разговора в минутах:");
+//double time = double.Parse(Console.ReadLine()!);
+//Console.Write("Введите цену минуты разговора:");
+//decimal price = decimal.Parse(Console.ReadLine()!);
+//Tel tel=new Tel(day,time,price);
+//tel.Print();
+//class Tel
+//{
+//    private int day;
+//    private double time;
+//    private decimal price;
+//    public Tel(int day, double time, decimal price)
+//    {
+//        this.day = day;
+//        this.time = time;
+//        this.price = price;
+//    }
+//    public int Day
+//    {
+//        get { return day; }
+//    }
+//    public double Time
+//    {
+//        get { return time; }
+//    }
+//    public decimal Price
+//    {
+//        get { return price; }
+//    }
+//    public decimal getTotal()
+//    {
+//        return day switch
+//        {
+//            1 => (decimal)time * price,
+//            2 => (decimal)time * price,
+//            3 => (decimal)time * price,
+//            4 => (decimal)time * price,
+//            5 => (decimal)time * price,
+//            6 => (decimal)0.9 * ((decimal)time * price),
+//            7 => (decimal)0.9*((decimal)time * price)
+//        };
+//    }
+//    public void Print()
+//    {
+//        Console.WriteLine($"Стоимость {time} минут разговора: {getTotal():F2}");
+//    }
+//}
+Console.Write("Введите радиус:");
+double r=double.Parse(Console.ReadLine()!);
+Console.Write("Введите высоту:");
+double h = double.Parse(Console.ReadLine()!);
+Cylinder cyl = new Cylinder(r,h);
+cyl.Print();
+
+class Cylinder
 {
-    private int day;
-    private double time;
-    private decimal price;
-    public Tel(int day, double time, decimal price)
+    private double radius;
+    private double height;
+    public Cylinder(double radius, double height)
     {
-        this.day = day;
-        this.time = time;
-        this.price = price;
+        this.radius = radius;
+        this.height = height;
     }
-    public int Day
+    public double getRadius() { return radius; }
+    public double getHeight() { return height; }
+    public double getArea()
     {
-        get { return day; }
-    }
-    public double Time
-    {
-        get { return time; }
-    }
-    public decimal Price
-    {
-        get { return price; }
-    }
-    public decimal getTotal()
-    {
-        return day switch
-        {
-            1 => (decimal)time * price,
-            2 => (decimal)time * price,
-            3 => (decimal)time * price,
-            4 => (decimal)time * price,
-            5 => (decimal)time * price,
-            6 => (decimal)0.9 * ((decimal)time * price),
-            7 => (decimal)0.9*((decimal)time * price)
-        };
+        return 2 * Math.PI * radius * height;
     }
     public void Print()
     {
-        Console.WriteLine($"Стоимость {time} минут разговора: {getTotal():F2}");
+        Console.WriteLine($"Площадь поверхности:{getArea():F2}");
     }
 }
