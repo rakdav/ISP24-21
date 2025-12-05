@@ -104,47 +104,71 @@
 
 //Средний уровень 25 вариант.
 
-NokeOut[] nokes = new NokeOut[3];
-for (int i = 0; i < nokes.Length; i++)
-{ 
-    nokes[i] = new NokeOut();
-    Console.Write("Введите дату:");
-    nokes[i].data = DateOnly.FromDateTime(DateTime.Parse(Console.ReadLine()));
-    Console.Write("Введите время:");
-    nokes[i].time=TimeOnly.Parse(Console.ReadLine());
-    Console.Write("Введите фамилию бойца победителя:");
-    nokes[i].fio_one = Console.ReadLine();
-    Console.Write("Введите фамилию бойца проигравшего:");
-    nokes[i].fio_two = Console.ReadLine();
-    Console.Write("Введите номер раунда:");
-    nokes[i].number = int.Parse(Console.ReadLine());
-    Console.Write("Введите время в минутах:");
-    nokes[i].finishMinutes = int.Parse(Console.ReadLine());
-    Console.Write("Введите время в секундах:");
-    nokes[i].finishSeconds = int.Parse(Console.ReadLine());
-}
-for (int i = 0; i < nokes.Length; i++)
-{
-    int seconds = 180 * (nokes[i].number - 1) + 120 * (nokes[i].number - 1) + nokes[i].finishMinutes * 60 + nokes[i].finishSeconds;
-    Console.WriteLine(DateTime.Parse($"{nokes[i].data} {nokes[i].time}").AddSeconds(seconds));
-}
-for (int i = 0; i < nokes.Length; i++)
-{
-    if (nokes[i].data>=DateOnly.FromDateTime(DateTime.Now).AddMonths(-3))
-        nokes[i].Print();
-}
+//NokeOut[] nokes = new NokeOut[3];
+//for (int i = 0; i < nokes.Length; i++)
+//{ 
+//    nokes[i] = new NokeOut();
+//    Console.Write("Введите дату:");
+//    nokes[i].data = DateOnly.FromDateTime(DateTime.Parse(Console.ReadLine()));
+//    Console.Write("Введите время:");
+//    nokes[i].time=TimeOnly.Parse(Console.ReadLine());
+//    Console.Write("Введите фамилию бойца победителя:");
+//    nokes[i].fio_one = Console.ReadLine();
+//    Console.Write("Введите фамилию бойца проигравшего:");
+//    nokes[i].fio_two = Console.ReadLine();
+//    Console.Write("Введите номер раунда:");
+//    nokes[i].number = int.Parse(Console.ReadLine());
+//    Console.Write("Введите время в минутах:");
+//    nokes[i].finishMinutes = int.Parse(Console.ReadLine());
+//    Console.Write("Введите время в секундах:");
+//    nokes[i].finishSeconds = int.Parse(Console.ReadLine());
+//}
+//for (int i = 0; i < nokes.Length; i++)
+//{
+//    int seconds = 180 * (nokes[i].number - 1) + 120 * (nokes[i].number - 1) + nokes[i].finishMinutes * 60 + nokes[i].finishSeconds;
+//    Console.WriteLine(DateTime.Parse($"{nokes[i].data} {nokes[i].time}").AddSeconds(seconds));
+//}
+//for (int i = 0; i < nokes.Length; i++)
+//{
+//    if (nokes[i].data>=DateOnly.FromDateTime(DateTime.Now).AddMonths(-3))
+//        nokes[i].Print();
+//}
 
-struct NokeOut
-{
-    public DateOnly data;
-    public TimeOnly time;
-    public string fio_one;
-    public string fio_two;
-    public int number;
-    public int finishMinutes;
-    public int finishSeconds;
-    public void Print()
-    {
-        Console.WriteLine(data+" "+time+fio_one+" "+fio_two);
-    }
-}
+//struct NokeOut
+//{
+//    public DateOnly data;
+//    public TimeOnly time;
+//    public string fio_one;
+//    public string fio_two;
+//    public int number;
+//    public int finishMinutes;
+//    public int finishSeconds;
+//    public void Print()
+//    {
+//        Console.WriteLine(data+" "+time+fio_one+" "+fio_two);
+//    }
+//}
+
+//using System;
+
+//int? x1=6;
+//if (x1.HasValue)
+//{
+//    int x2=(int)x1;
+//    Console.WriteLine(x2);
+//}
+//int? x3=x1+6;
+
+//?? null-объединение
+//string? text = "my";
+//string name = text??"";
+//Console.WriteLine(name);
+var tuple = (5, 10);
+Console.WriteLine(tuple.Item1);
+Console.WriteLine(tuple.Item2);
+(string, int, double) person = ("Tom", 5, 8.9);
+Console.WriteLine(person.Item1);
+
+int a=6,b=7;
+(a, b) = (b, a);
+Console.WriteLine(a+" "+b);
