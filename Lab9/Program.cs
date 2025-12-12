@@ -224,14 +224,28 @@ tom.СheckAge();     // Сколько лет осталось до пенсии
 Console.WriteLine(Person.retirementAge); // 65
 // изменение статического поля
 Person.retirementAge = 67;
-
+Person.CheckRetirementStatus(bob);
+Console.WriteLine(Person.RetirementAge);
+Console.WriteLine(Operations.Add(5, 4));         // 9
+Console.WriteLine(Operations.Subtract(5, 4));    // 1
+Console.WriteLine(Operations.Multiply(5, 4));
 class Person
 {
     int age;
     public static int retirementAge = 65;
+    public static int RetirementAge
+    {
+        get { return retirementAge; }
+        set { if(value>1&&value<100) retirementAge=value; }
+    }
     public Person(int age)
     {
         this.age = age;
+    }
+    static Person()
+    {
+        if (DateTime.Now.Year == 2025) retirementAge = 65;
+        else retirementAge = 67;
     }
     public void СheckAge()
     {
@@ -240,4 +254,18 @@ class Person
         else
             Console.WriteLine($"Сколько лет осталось до пенсии: {retirementAge - age}");
     }
+    public static void CheckRetirementStatus(Person person)
+    {
+        if(person.age >=retirementAge)
+            Console.WriteLine("Уже на пенсии");
+        else
+            Console.WriteLine($"Сколько лет осталось до пенсии: {retirementAge - person. age}");
+    }
+}
+
+static class Operations
+{
+    public static int Add(int x, int y) => x + y;
+    public static int Subtract(int x, int y) => x - y;
+    public static int Multiply(int x, int y) => x * y;
 }
