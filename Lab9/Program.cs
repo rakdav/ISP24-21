@@ -113,30 +113,131 @@
 //        Console.WriteLine($"Стоимость {time} минут разговора: {getTotal():F2}");
 //    }
 //}
-Console.Write("Введите радиус:");
-double r=double.Parse(Console.ReadLine()!);
-Console.Write("Введите высоту:");
-double h = double.Parse(Console.ReadLine()!);
-Cylinder cyl = new Cylinder(r,h);
-cyl.Print();
+//Console.Write("Введите радиус:");
+//double r=double.Parse(Console.ReadLine()!);
+//Console.Write("Введите высоту:");
+//double h = double.Parse(Console.ReadLine()!);
+//Cylinder cyl = new Cylinder(r,h);
+//cyl.Print();
 
-class Cylinder
+//class Cylinder
+//{
+//    private double radius;
+//    private double height;
+//    public Cylinder(double radius, double height)
+//    {
+//        this.radius = radius;
+//        this.height = height;
+//    }
+//    public double getRadius() { return radius; }
+//    public double getHeight() { return height; }
+//    public double getArea()
+//    {
+//        return 2 * Math.PI * radius * height;
+//    }
+//    public void Print()
+//    {
+//        Console.WriteLine($"Площадь поверхности:{getArea():F2}");
+//    }
+//}
+
+//-----статические поля и методы класса--------------
+//Console.Write("Введите числитель первой дроби:");
+//int n1=int.Parse(Console.ReadLine()!);
+//Console.Write("Введите знаменатель первой дроби:");
+//int d1 = int.Parse(Console.ReadLine()!);
+//Console.Write("Введите числитель второй дроби:");
+//int n2 = int.Parse(Console.ReadLine()!);
+//Console.Write("Введите знаменатель второй дроби:");
+//int d2 = int.Parse(Console.ReadLine()!);
+//Drob drob1 = new Drob(n1, d1);
+//drob1.Print();
+//Drob drob2 = new Drob(n2, d2);
+//drob2.Print();
+//Drob drob3=drob1.Add(drob2);
+//drob3.Print();
+//Drob drob4 = drob1.Sub(drob2);
+//drob4.Print();
+//Drob drob5 = drob1.Mult(drob2);
+//drob5.Print();
+//Drob drob6 = drob1.Div(drob2);
+//drob6.Print();
+//Console.WriteLine($"Количество объектов класса дробь:{Drob.count}");
+//class Drob
+//{
+//    private int numerator;
+//    private int denominator;
+//    public static int count = 0;
+//    public Drob(int _numerator, int _denominator)
+//    {
+//        this.numerator = _numerator;
+//        this.denominator = _denominator;
+//        count++;
+//    }
+//    public int Numerator
+//    {
+//        get { return numerator; }
+//        set { numerator = value; }
+//    }
+//    public int Denominator
+//    {
+//        get { return denominator; }
+//        set { if(value!=0) denominator = value; }
+//    }
+//    public Drob Add(Drob drob)
+//    {
+//        int num=this.numerator*drob.denominator+this.denominator*drob.numerator;
+//        int den=this.denominator*drob.denominator;
+//        return new Drob(num, den);
+//    }
+//    public Drob Sub(Drob drob)
+//    {
+//        int num = this.numerator * drob.denominator - this.denominator * drob.numerator;
+//        int den = this.denominator * drob.denominator;
+//        return new Drob(num, den);
+//    }
+//    public Drob Mult(Drob drob)
+//    {
+//        int num = this.numerator * drob.numerator;
+//        int den = this.denominator * drob.denominator;
+//        return new Drob(num, den);
+//    }
+//    public Drob Div(Drob drob)
+//    {
+//        int num = this.numerator * drob.denominator;
+//        int den = this.denominator * drob.numerator;
+//        return new Drob(num, den);
+//    }
+//    public void Print()
+//    {
+//        Console.WriteLine(numerator+"/"+denominator);
+//    }
+//}
+
+Person bob = new(68);
+bob.СheckAge();     // Уже на пенсии
+
+Person tom = new(37);
+tom.СheckAge();     // Сколько лет осталось до пенсии: 28
+
+// получение статического поля
+Console.WriteLine(Person.retirementAge); // 65
+// изменение статического поля
+Person.retirementAge = 67;
+
+class Person
 {
-    private double radius;
-    private double height;
-    public Cylinder(double radius, double height)
+    int age;
+    public static int retirementAge = 65;
+    public Person(int age)
     {
-        this.radius = radius;
-        this.height = height;
+        this.age = age;
     }
-    public double getRadius() { return radius; }
-    public double getHeight() { return height; }
-    public double getArea()
+    public void СheckAge()
     {
-        return 2 * Math.PI * radius * height;
-    }
-    public void Print()
-    {
-        Console.WriteLine($"Площадь поверхности:{getArea():F2}");
+        if (age >= retirementAge)
+            Console.WriteLine("Уже на пенсии");
+        else
+            Console.WriteLine($"Сколько лет осталось до пенсии: {retirementAge - age}");
     }
 }
