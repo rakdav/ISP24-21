@@ -54,80 +54,105 @@ using System.Xml.Linq;
 //    }
 //}
 //Средний уровень. 26 вариант.
-Console.Write("Введите название:");
-string name=Console.ReadLine()!;
-Console.Write("Введите цену:");
-double price=double.Parse(Console.ReadLine()!);
-Console.Write("Введите производителя:");
-string factory = Console.ReadLine()!;
-Console.Write("Введите год выпуска:");
-int year = int.Parse(Console.ReadLine()!);
-Console.Write("Введите скидку:");
-int dicount = int.Parse(Console.ReadLine()!);
-TovarChild tovar=new TovarChild(name,price,factory,year,dicount);
-tovar.Update();
-class Tovar
+//Console.Write("Введите название:");
+//string name=Console.ReadLine()!;
+//Console.Write("Введите цену:");
+//double price=double.Parse(Console.ReadLine()!);
+//Console.Write("Введите производителя:");
+//string factory = Console.ReadLine()!;
+//Console.Write("Введите год выпуска:");
+//int year = int.Parse(Console.ReadLine()!);
+//Console.Write("Введите скидку:");
+//int dicount = int.Parse(Console.ReadLine()!);
+//TovarChild tovar=new TovarChild(name,price,factory,year,dicount);
+//tovar.Update();
+//class Tovar
+//{
+//    private string? name;
+//    protected double price;
+//    private string? manufactory;
+//    public Tovar(string? name, double price, string? manufactory)
+//    {
+//        this.name = name;
+//        this.price = price;
+//        this.manufactory = manufactory;
+//    }
+//    public string? Name
+//    {
+//        get => name;
+//        set => name = value;
+//    }
+//    public double Price
+//    {
+//        get => price;
+//        set
+//        {
+//            if (value > 0) price = value;
+//        }
+//    }
+//    public string? Manufactory
+//    {
+//        get => manufactory;
+//        set => manufactory = value;
+//    }
+//    public double ToDollars(double kurs)
+//    {
+//        return price* kurs;
+//    }
+//    public void Add(double addSum)
+//    {
+//        if (name == "Toyota") price += addSum;
+//    }
+//}
+
+//class TovarChild:Tovar
+//{
+//    private int year;
+//    private int discount;
+
+//    public TovarChild(string? name, double price, string? manufactory,
+//        int _year,int _discount) : base(name, price, manufactory)
+//    {
+//        this.year = _year;
+//        this.discount = _discount;
+//    }
+//    public int Year
+//    {
+//        get { return year; }
+//        set { if (year > 0) year = value; }
+//    }
+//    public int Discount
+//    {
+//        get { return discount; }
+//        set { if(value>0) discount = value; }
+//    }
+//    public void Update()
+//    {
+//        if (DateTime.Now.Year-year>2) price*=(1-(discount/100.0));
+//    }
+//}
+
+string sist(int num1, int num2)
 {
-    private string? name;
-    protected double price;
-    private string? manufactory;
-    public Tovar(string? name, double price, string? manufactory)
+    string res = "";
+    do
     {
-        this.name = name;
-        this.price = price;
-        this.manufactory = manufactory;
-    }
-    public string? Name
-    {
-        get => name;
-        set => name = value;
-    }
-    public double Price
-    {
-        get => price;
-        set
-        {
-            if (value > 0) price = value;
-        }
-    }
-    public string? Manufactory
-    {
-        get => manufactory;
-        set => manufactory = value;
-    }
-    public double ToDollars(double kurs)
-    {
-        return price* kurs;
-    }
-    public void Add(double addSum)
-    {
-        if (name == "Toyota") price += addSum;
-    }
+        res = (num1 % num2) + res;
+        num1 /= num2;
+    } while (num1 > 0);
+    return res;
 }
-
-class TovarChild:Tovar
+try
 {
-    private int year;
-    private int discount;
-
-    public TovarChild(string? name, double price, string? manufactory,
-        int _year,int _discount) : base(name, price, manufactory)
-    {
-        this.year = _year;
-        this.discount = _discount;
-    }
-    public int Year
-    {
-        get { return year; }
-        set { if (year > 0) year = value; }
-    }
-    public int Discount
-    {
-        get { return discount; }
-        set { if(value>0) discount = value; }
-    }
-    public void Update()
-    {
-        if (DateTime.Now.Year-year>2) price*=(1-(discount/100.0));
-    }
+    Console.Write("Введите число: ");
+    int n = int.Parse(Console.ReadLine());
+    Console.Write("Введите систему счисления: ");
+    int p = int.Parse(Console.ReadLine());
+    if (n < 0) Console.WriteLine("введите положительное число");
+    else if (p < 2 || p > 9) throw new ArgumentException("Основание должно быть от 2 до 9");
+    else Console.WriteLine($"число {n} в {p}-ичной системе счисления: {sist(n, p)}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
 }
